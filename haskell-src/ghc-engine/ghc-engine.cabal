@@ -16,7 +16,7 @@ executable ghc-engine
                        zeromq4-haskell      >=0.6.4,
                        utf8-string          >=1.0.1.1,
                        time                 >=1.5.0.1,
-                       template-haskell     >=2.10.0.0,
+                       MissingH             >= 1.3.0.1,
                        optparse-applicative >=0.11 && <0.13,
                        pretty               >=1.1  && <1.2,
                        pretty-show          >=1.6  && <1.7,

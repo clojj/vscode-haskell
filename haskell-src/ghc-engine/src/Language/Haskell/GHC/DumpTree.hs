@@ -37,13 +37,8 @@ import TcEvidence
 import Var
 import qualified OccName as Occ
 
-import SrcLoc
-import FastString (mkFastString)
-
 import StringBuffer
 import Data.Time.Clock.POSIX
-
-import Lexer
 import ErrUtils
 
 {-------------------------------------------------------------------------------
@@ -277,43 +272,8 @@ data Trees = Trees {
 errBagToStrList :: Bag ErrMsg -> [String]
 errBagToStrList = map show . reverse . bagToList
 
--- ITvocurly, ITvccurly = "virtual" braces for layout induced blocks
--- ITocurly, ITccurly = real braces for no-layout blocks
--- ITsemi = blocks(?)
-
-showToken :: GenLocated SrcSpan Token -> String
-showToken t = "srcLoc: " ++ "\n" ++ srcloc ++ "\ntok: " ++ tok where
-  srcloc = show $ getLoc t
-  tok = show $ unLoc t
-
-showTokenWithSource :: (GHC.Located Token, String) -> String
-showTokenWithSource (loctok, src) =
-  "Located Token: " ++ tok ++ "\n" ++
-  "Source: " ++ src ++ "\n" ++
-  "Location: " ++ srcloc ++
-  "\n\n" where
-    tok = show $ unLoc loctok
-    srcloc = show $ getLoc loctok
-
-treesForModSummary :: GhcMonad m => String -> DynFlags -> ModSummary -> m Trees
-treesForModSummary src dynFlags modSummary = do
-
-  -- lexing
-   let lexLoc = mkRealSrcLoc  (mkFastString "<interactive>") 1 1
-   let sb = stringToStringBuffer src
-   let pResult = lexTokenStream sb lexLoc dynFlags
-   lexResult <- case pResult of
-              -- POk _ toks    -> liftIO $ putStr $ concatMap showToken toks
-              POk _ toks -> return $ concatMap showTokenWithSource (GHC.addSourceToTokens lexLoc sb toks)
-              PFailed srcspan msg -> do
-                let lexerError = mkPlainErrMsg dynFlags srcspan msg
-                liftIO $ print $ show srcspan
-                liftIO $ do
-                  putStrLn "Lexer Error:"
-                  print lexerError
-                return $ show lexerError
-
-   liftIO $ putStrLn lexResult
+treesForModSummary :: GhcMonad m => ModSummary -> m Trees
+treesForModSummary modSummary = do
 
    --  let wrapErr se = return $ Left $ show $ errBagToStrList $ srcErrorMessages se
    --  let wrapErr se = return $ Left $ show $ bagToList $ mapBag errMsgSpan $ srcErrorMessages se
@@ -381,12 +341,13 @@ treeDumpFlags dynFlags = dynFlags {
       }
 
 -- | Generate trees for modules in session
-treesForSession :: GhcMonad m => String -> DynFlags -> m [Trees]
-treesForSession src dynFlags = do
+treesForSession :: GhcMonad m => m [Trees]
+treesForSession = do
   hscEnv <- getSession
-  mapM (treesForModSummary src dynFlags) $ hsc_mod_graph hscEnv
+  mapM treesForModSummary $ hsc_mod_graph hscEnv
 
 -- | Generate trees for given sources, when already in GHC
+-- TODO exaustive pattern-match
 treesForTargetsSrc :: GhcMonad m => [String] -> m [Trees]
 treesForTargetsSrc (src : srcs) = do
   liftIO $ putStrLn "in treesForTargets"
@@ -402,7 +363,8 @@ treesForTargetsSrc (src : srcs) = do
       void $ load LoadAllTargets
       --
       -- generate each module
-      treesForSession src dynFlags'
+      treesForSession
+
   where
     mkTarget :: String -> Target
     mkTarget s = Target {

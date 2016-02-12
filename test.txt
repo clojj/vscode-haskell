@@ -1,4 +1,3 @@
 module Test where
-
 f :: Int
 f = 123
