@@ -1,0 +1,2 @@
+module Bad where
+}

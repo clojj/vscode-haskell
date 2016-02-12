@@ -1,0 +1,9 @@
+out
+node_modules
+.DS_Store
+*.hi
+*.o
+HaskellLexerServer
+BasicParserServer
+BasicParserServerJson
+zmq-test

@@ -1,0 +1,13 @@
+[
+  {
+    "renamed": "",
+    "typechecked": "",
+    "exports": "",
+    "module": "",
+    "errors": [
+      "parse error on input ‘}’",
+      "RealSrcSpan SrcSpanOneLine \"/Users/jwin/VSCodeExtensions/vscode-extension-samples/decorator-sample/haskell-src/data/HelloWorld2.hs\" 2 1 2"
+    ],
+    "parsed": ""
+  }
+]
