@@ -7,3 +7,4 @@ HaskellLexerServer
 BasicParserServer
 BasicParserServerJson
 zmq-test
+npm-debug.log
