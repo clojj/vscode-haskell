@@ -3,11 +3,11 @@
 	"version": "0.1.0",
 	"configurations": [
 		{
-			"name": "Launch he",
+			"name": "Launch vscode-haskell",
 			"type": "extensionHost",
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
-			"args": ["/Users/jwin/VSCodeExtensions/he/test.txt", "--extensionDevelopmentPath=${workspaceRoot}"],
+			"args": ["/Users/jwin/VSCodeExtensions/vscode-haskell/test.txt", "--extensionDevelopmentPath=${workspaceRoot}"],
 			"stopOnEntry": false,
 			"sourceMaps": true,
 			"outDir": "${workspaceRoot}/out",

@@ -1,8 +1,8 @@
 {
-	"name": "decorator-sample",
-	"description": "Sample for the decorator API",
+	"name": "vscode-haskell",
+	"description": "Support for Haskell editing in VSCode",
 	"version": "0.0.1",
-	"publisher": "Microsoft",
+ 	"publisher": "jwin",
 	"license": "MIT",
 	"engines": {
 		"vscode": "0.10.x"

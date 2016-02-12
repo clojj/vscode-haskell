@@ -10,7 +10,7 @@ var EventEmitter = require('events');
 
 export function activate(context: vscode.ExtensionContext) {
 
-  console.log('he: Extension activated');
+  console.log('vscode-haskell: Extension activated !');
 
   var activeEditor = vscode.window.activeTextEditor;
   var e = new EventEmitter();
