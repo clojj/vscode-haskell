@@ -1,0 +1,1367 @@
+[
+  {
+    "renamed": [
+      {
+        "HsGroup": [
+          {
+            "ValBindsOut": [
+              [
+                [
+                  "NonRecursive",
+                  [
+                    {
+                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                      "FunBind": [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                          "VarName": "integer",
+                          "n_sort": {
+                            "External": {
+                              "Module": [
+                                "main",
+                                "HelloWorld"
+                              ]
+                            }
+                          }
+                        },
+                        false,
+                        {
+                          "MG": [
+                            [
+                              {
+                                "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                                "Match": [
+                                  {
+                                    "Just": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                                          "VarName": "integer",
+                                          "n_sort": {
+                                            "External": {
+                                              "Module": [
+                                                "main",
+                                                "HelloWorld"
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        false
+                                      ]
+                                    ]
+                                  },
+                                  [],
+                                  "Nothing",
+                                  {
+                                    "GRHSs": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:9-23",
+                                          "GRHS": [
+                                            [],
+                                            {
+                                              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-23",
+                                              "ExprWithTySig": [
+                                                {
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-12",
+                                                  "HsOverLit": [
+                                                    {
+                                                      "OverLit": [
+                                                        "42",
+                                                        false,
+                                                        {
+                                                          "HsVar": [
+                                                            {
+                                                              "n_loc": "<no location info>",
+                                                              "VarName": "fromInteger",
+                                                              "n_sort": {
+                                                                "External": {
+                                                                  "Module": [
+                                                                    "base",
+                                                                    "GHC.Num"
+                                                                  ]
+                                                                }
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        "PlaceHolder"
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:17-23",
+                                                  "Integer": {
+                                                    "HsTyVar": [
+                                                      {
+                                                        "TcClsName": "Integer",
+                                                        "n_loc": "<no location info>",
+                                                        "n_sort": {
+                                                          "External": {
+                                                            "Module": [
+                                                              "integer-gmp",
+                                                              "GHC.Integer.Type"
+                                                            ]
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                []
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "EmptyLocalBinds"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            [],
+                            "PlaceHolder",
+                            "FromSource"
+                          ]
+                        },
+                        "WpHole",
+                        {
+                          "UFM": [
+                            {
+                              "fromList": [
+                                []
+                              ]
+                            }
+                          ]
+                        },
+                        []
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  "NonRecursive",
+                  [
+                    {
+                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                      "FunBind": [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                          "VarName": "fractional",
+                          "n_sort": {
+                            "External": {
+                              "Module": [
+                                "main",
+                                "HelloWorld"
+                              ]
+                            }
+                          }
+                        },
+                        false,
+                        {
+                          "MG": [
+                            [
+                              {
+                                "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                                "Match": [
+                                  {
+                                    "Just": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                                          "VarName": "fractional",
+                                          "n_sort": {
+                                            "External": {
+                                              "Module": [
+                                                "main",
+                                                "HelloWorld"
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        false
+                                      ]
+                                    ]
+                                  },
+                                  [],
+                                  "Nothing",
+                                  {
+                                    "GRHSs": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:12-28",
+                                          "GRHS": [
+                                            [],
+                                            {
+                                              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-28",
+                                              "ExprWithTySig": [
+                                                {
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-19",
+                                                  "HsOverLit": [
+                                                    {
+                                                      "OverLit": [
+                                                        "3.1415",
+                                                        false,
+                                                        {
+                                                          "HsVar": [
+                                                            {
+                                                              "n_loc": "<no location info>",
+                                                              "VarName": "fromRational",
+                                                              "n_sort": {
+                                                                "External": {
+                                                                  "Module": [
+                                                                    "base",
+                                                                    "GHC.Real"
+                                                                  ]
+                                                                }
+                                                              }
+                                                            }
+                                                          ]
+                                                        },
+                                                        "PlaceHolder"
+                                                      ]
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:24-28",
+                                                  "Float": {
+                                                    "HsTyVar": [
+                                                      {
+                                                        "TcClsName": "Float",
+                                                        "n_loc": "<wired into compiler>",
+                                                        "n_sort": {
+                                                          "WiredIn": {
+                                                            "Module": [
+                                                              "ghc-prim",
+                                                              "GHC.Types"
+                                                            ]
+                                                          }
+                                                        }
+                                                      }
+                                                    ]
+                                                  }
+                                                },
+                                                []
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "EmptyLocalBinds"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            [],
+                            "PlaceHolder",
+                            "FromSource"
+                          ]
+                        },
+                        "WpHole",
+                        {
+                          "UFM": [
+                            {
+                              "fromList": [
+                                []
+                              ]
+                            }
+                          ]
+                        },
+                        []
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  "NonRecursive",
+                  [
+                    {
+                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                      "FunBind": [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                          "VarName": "main",
+                          "n_sort": {
+                            "External": {
+                              "Module": [
+                                "main",
+                                "HelloWorld"
+                              ]
+                            }
+                          }
+                        },
+                        false,
+                        {
+                          "MG": [
+                            [
+                              {
+                                "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                                "Match": [
+                                  {
+                                    "Just": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                                          "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                                          "VarName": "main",
+                                          "n_sort": {
+                                            "External": {
+                                              "Module": [
+                                                "main",
+                                                "HelloWorld"
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        false
+                                      ]
+                                    ]
+                                  },
+                                  [],
+                                  "Nothing",
+                                  {
+                                    "GRHSs": [
+                                      [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:6-31",
+                                          "GRHS": [
+                                            [],
+                                            {
+                                              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-31",
+                                              "HsApp": [
+                                                {
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-15",
+                                                  "HsVar": [
+                                                    {
+                                                      "n_loc": "<no location info>",
+                                                      "VarName": "putStrLn",
+                                                      "n_sort": {
+                                                        "External": {
+                                                          "Module": [
+                                                            "base",
+                                                            "System.IO"
+                                                          ]
+                                                        }
+                                                      }
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "HsLit": [
+                                                    "\"Hello, World!\""
+                                                  ],
+                                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:17-31"
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "EmptyLocalBinds"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            [],
+                            "PlaceHolder",
+                            "FromSource"
+                          ]
+                        },
+                        "WpHole",
+                        {
+                          "UFM": [
+                            {
+                              "fromList": [
+                                []
+                              ]
+                            }
+                          ]
+                        },
+                        []
+                      ]
+                    }
+                  ]
+                ]
+              ],
+              []
+            ]
+          },
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ]
+      },
+      [
+        {
+          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:1:8-17",
+          "ImportDecl": [
+            "Nothing",
+            "Prelude",
+            "Nothing",
+            false,
+            false,
+            false,
+            true,
+            "Nothing",
+            "Nothing"
+          ]
+        }
+      ],
+      "Nothing",
+      "Nothing"
+    ],
+    "typechecked": [
+      {
+        "AbsBinds": [
+          [],
+          [],
+          [
+            {
+              "ABE": [
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                  "VarName": "integer",
+                  "varType": {
+                    "Integer": {
+                      "TyConApp": [
+                        "Integer",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": {
+                    "External": {
+                      "Module": [
+                        "main",
+                        "HelloWorld"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                  "VarName": "integer",
+                  "varType": {
+                    "Integer": {
+                      "TyConApp": [
+                        "Integer",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                "WpHole",
+                {
+                  "SpecPrags": [
+                    []
+                  ]
+                }
+              ]
+            }
+          ],
+          "TcEvBinds",
+          [
+            {
+              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+              "FunBind": [
+                {
+                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                  "VarName": "integer",
+                  "varType": {
+                    "Integer": {
+                      "TyConApp": [
+                        "Integer",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                false,
+                {
+                  "MG": [
+                    [
+                      {
+                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                        "Match": [
+                          "Nothing",
+                          [],
+                          "Nothing",
+                          {
+                            "GRHSs": [
+                              [
+                                {
+                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:9-23",
+                                  "GRHS": [
+                                    [],
+                                    {
+                                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-23",
+                                      "ExprWithTySigOut": [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-12",
+                                          "HsOverLit": [
+                                            {
+                                              "OverLit": [
+                                                "42",
+                                                false,
+                                                {
+                                                  "HsLit": [
+                                                    "42"
+                                                  ]
+                                                },
+                                                {
+                                                  "Integer": {
+                                                    "TyConApp": [
+                                                      "Integer",
+                                                      []
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:17-23",
+                                          "Integer": {
+                                            "HsTyVar": [
+                                              {
+                                                "TcClsName": "Integer",
+                                                "n_loc": "<no location info>",
+                                                "n_sort": {
+                                                  "External": {
+                                                    "Module": [
+                                                      "integer-gmp",
+                                                      "GHC.Integer.Type"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "EmptyLocalBinds"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    [],
+                    {
+                      "Integer": {
+                        "TyConApp": [
+                          "Integer",
+                          []
+                        ]
+                      }
+                    },
+                    "FromSource"
+                  ]
+                },
+                "WpHole",
+                {
+                  "UFM": [
+                    {
+                      "fromList": [
+                        []
+                      ]
+                    }
+                  ]
+                },
+                []
+              ]
+            }
+          ]
+        ],
+        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23"
+      },
+      {
+        "AbsBinds": [
+          [],
+          [],
+          [
+            {
+              "ABE": [
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                  "VarName": "fractional",
+                  "varType": {
+                    "Float": {
+                      "TyConApp": [
+                        "Float",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": {
+                    "External": {
+                      "Module": [
+                        "main",
+                        "HelloWorld"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                  "VarName": "fractional",
+                  "varType": {
+                    "Float": {
+                      "TyConApp": [
+                        "Float",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                "WpHole",
+                {
+                  "SpecPrags": [
+                    []
+                  ]
+                }
+              ]
+            }
+          ],
+          "TcEvBinds",
+          [
+            {
+              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+              "FunBind": [
+                {
+                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                  "VarName": "fractional",
+                  "varType": {
+                    "Float": {
+                      "TyConApp": [
+                        "Float",
+                        []
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                false,
+                {
+                  "MG": [
+                    [
+                      {
+                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                        "Match": [
+                          "Nothing",
+                          [],
+                          "Nothing",
+                          {
+                            "GRHSs": [
+                              [
+                                {
+                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:12-28",
+                                  "GRHS": [
+                                    [],
+                                    {
+                                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-28",
+                                      "ExprWithTySigOut": [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-19",
+                                          "HsOverLit": [
+                                            {
+                                              "OverLit": [
+                                                "3.1415",
+                                                false,
+                                                {
+                                                  "HsApp": [
+                                                    {
+                                                      "location": "<no location info>",
+                                                      "HsVar": [
+                                                        {
+                                                          "n_loc": "<wired into compiler>",
+                                                          "VarName": "F#",
+                                                          "varType": {
+                                                            "Float# -> Float": {
+                                                              "FunTy": [
+                                                                {
+                                                                  "TyConApp": [
+                                                                    "Float#",
+                                                                    []
+                                                                  ]
+                                                                },
+                                                                {
+                                                                  "TyConApp": [
+                                                                    "Float",
+                                                                    []
+                                                                  ]
+                                                                }
+                                                              ]
+                                                            }
+                                                          },
+                                                          "n_sort": {
+                                                            "WiredIn": {
+                                                              "Module": [
+                                                                "ghc-prim",
+                                                                "GHC.Types"
+                                                              ]
+                                                            }
+                                                          }
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "HsLit": [
+                                                        "3.1415#"
+                                                      ],
+                                                      "location": "<no location info>"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "Float": {
+                                                    "TyConApp": [
+                                                      "Float",
+                                                      []
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:24-28",
+                                          "Float": {
+                                            "HsTyVar": [
+                                              {
+                                                "TcClsName": "Float",
+                                                "n_loc": "<wired into compiler>",
+                                                "n_sort": {
+                                                  "WiredIn": {
+                                                    "Module": [
+                                                      "ghc-prim",
+                                                      "GHC.Types"
+                                                    ]
+                                                  }
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "EmptyLocalBinds"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    [],
+                    {
+                      "Float": {
+                        "TyConApp": [
+                          "Float",
+                          []
+                        ]
+                      }
+                    },
+                    "FromSource"
+                  ]
+                },
+                "WpHole",
+                {
+                  "UFM": [
+                    {
+                      "fromList": [
+                        []
+                      ]
+                    }
+                  ]
+                },
+                []
+              ]
+            }
+          ]
+        ],
+        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28"
+      },
+      {
+        "AbsBinds": [
+          [],
+          [],
+          [
+            {
+              "ABE": [
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                  "VarName": "main",
+                  "varType": {
+                    "IO ()": {
+                      "TyConApp": [
+                        "IO",
+                        [
+                          {
+                            "()": {
+                              "TyConApp": [
+                                "()",
+                                []
+                              ]
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  },
+                  "n_sort": {
+                    "External": {
+                      "Module": [
+                        "main",
+                        "HelloWorld"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                  "VarName": "main",
+                  "varType": {
+                    "IO ()": {
+                      "TyConApp": [
+                        "IO",
+                        [
+                          {
+                            "()": {
+                              "TyConApp": [
+                                "()",
+                                []
+                              ]
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                "WpHole",
+                {
+                  "SpecPrags": [
+                    []
+                  ]
+                }
+              ]
+            }
+          ],
+          "TcEvBinds",
+          [
+            {
+              "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+              "FunBind": [
+                {
+                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                  "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                  "VarName": "main",
+                  "varType": {
+                    "IO ()": {
+                      "TyConApp": [
+                        "IO",
+                        [
+                          {
+                            "()": {
+                              "TyConApp": [
+                                "()",
+                                []
+                              ]
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  },
+                  "n_sort": "Internal"
+                },
+                false,
+                {
+                  "MG": [
+                    [
+                      {
+                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                        "Match": [
+                          "Nothing",
+                          [],
+                          "Nothing",
+                          {
+                            "GRHSs": [
+                              [
+                                {
+                                  "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:6-31",
+                                  "GRHS": [
+                                    [],
+                                    {
+                                      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-31",
+                                      "HsApp": [
+                                        {
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-15",
+                                          "HsVar": [
+                                            {
+                                              "n_loc": "<no location info>",
+                                              "VarName": "putStrLn",
+                                              "varType": {
+                                                "String -> IO ()": {
+                                                  "FunTy": [
+                                                    {
+                                                      "TyConApp": [
+                                                        "String",
+                                                        []
+                                                      ]
+                                                    },
+                                                    {
+                                                      "TyConApp": [
+                                                        "IO",
+                                                        [
+                                                          {
+                                                            "()": {
+                                                              "TyConApp": [
+                                                                "()",
+                                                                []
+                                                              ]
+                                                            }
+                                                          }
+                                                        ]
+                                                      ]
+                                                    }
+                                                  ]
+                                                }
+                                              },
+                                              "n_sort": {
+                                                "External": {
+                                                  "Module": [
+                                                    "base",
+                                                    "System.IO"
+                                                  ]
+                                                }
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "HsLit": [
+                                            "\"Hello, World!\""
+                                          ],
+                                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:17-31"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "EmptyLocalBinds"
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    [],
+                    {
+                      "IO ()": {
+                        "TyConApp": [
+                          "IO",
+                          [
+                            {
+                              "()": {
+                                "TyConApp": [
+                                  "()",
+                                  []
+                                ]
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "FromSource"
+                  ]
+                },
+                "WpHole",
+                {
+                  "UFM": [
+                    {
+                      "fromList": [
+                        []
+                      ]
+                    }
+                  ]
+                },
+                []
+              ]
+            }
+          ]
+        ],
+        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31"
+      }
+    ],
+    "exports": [
+      {
+        "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+        "VarName": "main",
+        "n_sort": {
+          "External": {
+            "Module": [
+              "main",
+              "HelloWorld"
+            ]
+          }
+        }
+      },
+      {
+        "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+        "VarName": "fractional",
+        "n_sort": {
+          "External": {
+            "Module": [
+              "main",
+              "HelloWorld"
+            ]
+          }
+        }
+      },
+      {
+        "n_loc": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+        "VarName": "integer",
+        "n_sort": {
+          "External": {
+            "Module": [
+              "main",
+              "HelloWorld"
+            ]
+          }
+        }
+      }
+    ],
+    "module": "HelloWorld",
+    "errors": [],
+    "parsed": {
+      "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:1:1",
+      "HsModule": [
+        {
+          "Just": [
+            "HelloWorld"
+          ]
+        },
+        "Nothing",
+        [],
+        [
+          {
+            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                    "VarName": "main"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-31",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:1-4",
+                                    "VarName": "main"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:6-31",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-31",
+                                        "HsApp": [
+                                          {
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:8-15",
+                                            "HsVar": [
+                                              {
+                                                "VarName": "putStrLn"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsLit": [
+                                              "\"Hello, World!\""
+                                            ],
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:2:17-31"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          },
+          {
+            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                    "VarName": "fractional"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-28",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:1-10",
+                                    "VarName": "fractional"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:12-28",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-28",
+                                        "ExprWithTySig": [
+                                          {
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:14-19",
+                                            "HsOverLit": [
+                                              {
+                                                "OverLit": [
+                                                  "3.1415",
+                                                  "PlaceHolder",
+                                                  {
+                                                    "HsLit": [
+                                                      "\"noSyntaxExpr\""
+                                                    ]
+                                                  },
+                                                  "PlaceHolder"
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsForAllTy": [
+                                              "Implicit",
+                                              "Nothing",
+                                              {
+                                                "HsQTvs": [
+                                                  [],
+                                                  []
+                                                ]
+                                              },
+                                              [],
+                                              {
+                                                "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:24-28",
+                                                "HsTyVar": [
+                                                  {
+                                                    "TcClsName": "Float"
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:4:24-28"
+                                          },
+                                          "PlaceHolder"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          },
+          {
+            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                    "VarName": "integer"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-23",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:1-7",
+                                    "VarName": "integer"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:9-23",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-23",
+                                        "ExprWithTySig": [
+                                          {
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:11-12",
+                                            "HsOverLit": [
+                                              {
+                                                "OverLit": [
+                                                  "42",
+                                                  "PlaceHolder",
+                                                  {
+                                                    "HsLit": [
+                                                      "\"noSyntaxExpr\""
+                                                    ]
+                                                  },
+                                                  "PlaceHolder"
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsForAllTy": [
+                                              "Implicit",
+                                              "Nothing",
+                                              {
+                                                "HsQTvs": [
+                                                  [],
+                                                  []
+                                                ]
+                                              },
+                                              [],
+                                              {
+                                                "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:17-23",
+                                                "HsTyVar": [
+                                                  {
+                                                    "TcClsName": "Integer"
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "location": "/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy:5:17-23"
+                                          },
+                                          "PlaceHolder"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "Nothing",
+        "Nothing"
+      ]
+    }
+  }
+]

@@ -1,4 +1,5 @@
-- **refactor: common JSON generation in HaskellLexerParserServerJson and ghc-engine**
+- return lexer errors as JSON in `ghc-engine/src/HaskellLexerParserServerJson.hs`
+- obsolete: `haskell-src/*Server*.*`
 
 - optional lexing in ghc-engine
 - optional lexing and optional parsing in HaskellLexerParserServerJson

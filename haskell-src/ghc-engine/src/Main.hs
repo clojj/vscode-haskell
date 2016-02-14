@@ -1,6 +1,7 @@
 module Main (main) where
 
 import           Language.Haskell.GHC.DumpTree
+import Jsonize
 
 import qualified GHC
 import           GHC.Paths                     (libdir)
@@ -55,7 +56,7 @@ worker strChan =
             cd <- liftIO getCurrentDirectory
             -- TODO extract (cd ++ "/dummy")
             trees <- treesForTargetsSrc (cd ++ "/dummy") [UTF8.toString src] -- test multiple sources: [UTF8.toString src, "module A }"]
-            liftIO $ dumpText trees
+            -- liftIO $ dumpText trees
             let ast = Aeson.encode trees
             liftIO $ writeChan strChan $ BSL.toStrict ast
 
