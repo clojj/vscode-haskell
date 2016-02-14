@@ -1,10 +1,11 @@
-- return lexer errors as JSON in `ghc-engine/src/HaskellLexerParserServerJson.hs`
+- `ghc-engine/src/HaskellLexerParserServerJson.hs` : don't parse if any lexer-errors
 - obsolete: `haskell-src/*Server*.*`
 
 - optional lexing in ghc-engine
 - optional lexing and optional parsing in HaskellLexerParserServerJson
 
 - in active editor: decorate positions from lexer/parser-response
+
 - start server-process(es) automatically on activation
 - send '{{exit}}' from appropriate place
 

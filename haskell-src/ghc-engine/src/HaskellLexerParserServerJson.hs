@@ -75,23 +75,33 @@ worker channel =
                                   putStrLn "Lexer Error:"
                                   print lexerError
                                 return [show lexerError]
+                  -- TODO only parse, if there are no lexer errors ?
 
                   -- parsing
                   let out = runParser dynflags parserModule (UTF8.toString src)
                   case out of
+
                     -- TODO remove Partial for GHC >= 7.10 ?
                     Partial s (s1, s2) -> do
                       liftIO $ putStrLn "Partial:"
                       liftIO $ putStrLn $ showData Parser 2 s
                       liftIO $ putStrLn $ showData Parser 2 s1
                       liftIO $ putStrLn $ showData Parser 2 s2
+
                     Failure err sloc -> do
                       liftIO $ print err
                       liftIO $ print sloc
-                      -- TODO errors as JSON !
-                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ err ++ " " ++ show sloc
+                      let treeEmpty = String ""
+                      let trees = Trees{treeErrors = [err, show sloc],
+                                  treeModule = "",
+                                  treeParsed = treeEmpty,
+                                  treeRenamed = treeEmpty,
+                                  treeTypechecked = treeEmpty,
+                                  treeExports = treeEmpty}
+                      let ts = Aeson.encode trees
+                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ts) ++ "\n"
+
                     Parsed s -> do
-                      -- TODO emit ast as JSON !
                       treeParsed <- mkTree s
                       let treeEmpty = String ""
                       let trees = Trees{treeErrors = [],
@@ -106,7 +116,7 @@ worker channel =
                       -- let ast = showData Parser 2 s
                       -- liftIO $ putStrLn ast
 
-                      liftIO $ writeChan channel $ UTF8.fromString ("LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ast) ++ "\n")
+                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ast) ++ "\n"
 
   where
     mkTree :: (Data a,GhcMonad m) => a -> m Value
