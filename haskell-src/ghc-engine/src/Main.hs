@@ -18,7 +18,7 @@ import           System.ZMQ4.Monadic
 import qualified Data.Aeson                    as Aeson
 import qualified Data.ByteString.Lazy          as BSL
 
-{-
+{- optional lexing
 import SrcLoc
 import FastString (mkFastString)
 import StringBuffer
