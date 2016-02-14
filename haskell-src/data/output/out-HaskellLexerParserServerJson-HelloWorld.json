@@ -1,0 +1,329 @@
+[
+  [
+    "Located Token: ITmodule\nSource: module\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 1 7\n\n",
+    "Located Token: ITconid \"HelloWorld\"\nSource: HelloWorld\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 8 18\n\n",
+    "Located Token: ITwhere\nSource: where\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 19 24\n\n",
+    "Located Token: ITvocurly\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 2 1\n\n",
+    "Located Token: ITvarid \"main\"\nSource: main\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 1 5\n\n",
+    "Located Token: ITequal\nSource: =\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 6 7\n\n",
+    "Located Token: ITvarid \"putStrLn\"\nSource: putStrLn\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 8 16\n\n",
+    "Located Token: ITstring \"\\\"Hello, World!\\\"\" \"Hello, World!\"\nSource: \"Hello, World!\"\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 17 32\n\n",
+    "Located Token: ITlineComment \"-- comment 111\"\nSource: -- comment 111\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 3 1 15\n\n",
+    "Located Token: ITsemi\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 4 1\n\n",
+    "Located Token: ITvarid \"fractional\"\nSource: fractional\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 4 1 11\n\n",
+    "Located Token: ITequal\nSource: =\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 4 12 13\n\n",
+    "Located Token: ITrational (FL {fl_text = \"3.1415\", fl_value = 6283 % 2000})\nSource: 3.1415\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 4 14 20\n\n",
+    "Located Token: ITdcolon\nSource: ::\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 4 21 23\n\n",
+    "Located Token: ITconid \"Float\"\nSource: Float\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 4 24 29\n\n",
+    "Located Token: ITsemi\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 5 1\n\n",
+    "Located Token: ITvarid \"integer\"\nSource: integer\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 5 1 8\n\n",
+    "Located Token: ITequal\nSource: =\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 5 9 10\n\n",
+    "Located Token: ITinteger \"42\" 42\nSource: 42\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 5 11 13\n\n",
+    "Located Token: ITdcolon\nSource: ::\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 5 14 16\n\n",
+    "Located Token: ITconid \"Integer\"\nSource: Integer\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 5 17 24\n\n",
+    "Located Token: ITsemi\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 6 1\n\n"
+  ],
+  {
+    "renamed": "",
+    "typechecked": "",
+    "exports": "",
+    "module": "",
+    "errors": [],
+    "parsed": {
+      "location": "<interactive>:1:1",
+      "HsModule": [
+        {
+          "Just": [
+            "HelloWorld"
+          ]
+        },
+        "Nothing",
+        [],
+        [
+          {
+            "location": "<interactive>:2:1-31",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "<interactive>:2:1-4",
+                    "VarName": "main"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "<interactive>:2:1-31",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "<interactive>:2:1-4",
+                                    "VarName": "main"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "<interactive>:2:6-31",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "<interactive>:2:8-31",
+                                        "HsApp": [
+                                          {
+                                            "location": "<interactive>:2:8-15",
+                                            "HsVar": [
+                                              {
+                                                "VarName": "putStrLn"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsLit": [
+                                              "\"Hello, World!\""
+                                            ],
+                                            "location": "<interactive>:2:17-31"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          },
+          {
+            "location": "<interactive>:4:1-28",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "<interactive>:4:1-10",
+                    "VarName": "fractional"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "<interactive>:4:1-28",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "<interactive>:4:1-10",
+                                    "VarName": "fractional"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "<interactive>:4:12-28",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "<interactive>:4:14-28",
+                                        "ExprWithTySig": [
+                                          {
+                                            "location": "<interactive>:4:14-19",
+                                            "HsOverLit": [
+                                              {
+                                                "OverLit": [
+                                                  "3.1415",
+                                                  "PlaceHolder",
+                                                  {
+                                                    "HsLit": [
+                                                      "\"noSyntaxExpr\""
+                                                    ]
+                                                  },
+                                                  "PlaceHolder"
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsForAllTy": [
+                                              "Implicit",
+                                              "Nothing",
+                                              {
+                                                "HsQTvs": [
+                                                  [],
+                                                  []
+                                                ]
+                                              },
+                                              [],
+                                              {
+                                                "location": "<interactive>:4:24-28",
+                                                "HsTyVar": [
+                                                  {
+                                                    "TcClsName": "Float"
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "location": "<interactive>:4:24-28"
+                                          },
+                                          "PlaceHolder"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          },
+          {
+            "location": "<interactive>:5:1-23",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "<interactive>:5:1-7",
+                    "VarName": "integer"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "<interactive>:5:1-23",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "<interactive>:5:1-7",
+                                    "VarName": "integer"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "<interactive>:5:9-23",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "<interactive>:5:11-23",
+                                        "ExprWithTySig": [
+                                          {
+                                            "location": "<interactive>:5:11-12",
+                                            "HsOverLit": [
+                                              {
+                                                "OverLit": [
+                                                  "42",
+                                                  "PlaceHolder",
+                                                  {
+                                                    "HsLit": [
+                                                      "\"noSyntaxExpr\""
+                                                    ]
+                                                  },
+                                                  "PlaceHolder"
+                                                ]
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsForAllTy": [
+                                              "Implicit",
+                                              "Nothing",
+                                              {
+                                                "HsQTvs": [
+                                                  [],
+                                                  []
+                                                ]
+                                              },
+                                              [],
+                                              {
+                                                "location": "<interactive>:5:17-23",
+                                                "HsTyVar": [
+                                                  {
+                                                    "TcClsName": "Integer"
+                                                  }
+                                                ]
+                                              }
+                                            ],
+                                            "location": "<interactive>:5:17-23"
+                                          },
+                                          "PlaceHolder"
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "Nothing",
+        "Nothing"
+      ]
+    }
+  }
+]

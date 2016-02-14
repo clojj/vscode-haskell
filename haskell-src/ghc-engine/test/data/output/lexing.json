@@ -1,0 +1,16 @@
+[
+  "Located Token: ITmodule\nSource: module\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 1 7\n\nLocated Token: ITconid \"Bad\"\nSource: Bad\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 8 11\n\nLocated Token: ITwhere\nSource: where\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 12 17\n\nLocated Token: ITvocurly\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 2 1\n\nLocated Token: ITccurly\nSource: }\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 1 2\n\n",
+  [
+    {
+      "renamed": "",
+      "typechecked": "",
+      "exports": "",
+      "module": "",
+      "errors": [
+        "parse error on input ‘}’",
+        "RealSrcSpan SrcSpanOneLine \"/Users/jwin/VSCodeExtensions/vscode-extension-samples/decorator-sample/haskell-src/data/HelloWorld2.hs\" 2 1 2"
+      ],
+      "parsed": ""
+    }
+  ]
+]
