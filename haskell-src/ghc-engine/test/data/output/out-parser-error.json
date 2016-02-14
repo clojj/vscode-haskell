@@ -6,7 +6,7 @@
     "module": "",
     "errors": [
       "parse error on input ‘}’",
-      "RealSrcSpan SrcSpanOneLine \"/Users/jwin/VSCodeExtensions/vscode-extension-samples/decorator-sample/haskell-src/data/HelloWorld2.hs\" 2 1 2"
+      "RealSrcSpan SrcSpanOneLine \"/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dummy\" 1 1 2"
     ],
     "parsed": ""
   }
