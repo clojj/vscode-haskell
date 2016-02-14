@@ -110,6 +110,7 @@ worker channel =
                     Failure err sloc -> do
                       liftIO $ print err
                       liftIO $ print sloc
+                      -- TODO errors as JSON !
                       liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ err ++ " " ++ show sloc
                     Parsed s -> do
                       -- TODO emit ast as JSON !

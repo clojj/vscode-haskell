@@ -322,7 +322,6 @@ treesForSession = do
   mapM treesForModSummary $ hsc_mod_graph hscEnv
 
 -- | Generate trees for given sources, when already in GHC
--- TODO exaustive pattern-match
 treesForTargetsSrc :: GhcMonad m => FilePath -> [String] -> m [Trees]
 treesForTargetsSrc filePath srcs = do
     liftIO $ putStrLn $ "sources:\n" ++ intercalate "\n---\n" srcs

@@ -1,5 +1,8 @@
 - **refactor: common JSON generation in HaskellLexerParserServerJson and ghc-engine**
 
+- optional lexing in ghc-engine
+- optional lexing and optional parsing in HaskellLexerParserServerJson
+
 - in active editor: decorate positions from lexer/parser-response
 - start server-process(es) automatically on activation
 - send '{{exit}}' from appropriate place
