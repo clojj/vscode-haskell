@@ -1,4 +1,5 @@
 - `ghc-engine/src/HaskellLexerParserServerJson.hs` : don't parse if any lexer-errors
+
 - obsolete: `haskell-src/*Server*.*`
 
 - optional lexing in ghc-engine
@@ -6,10 +7,11 @@
 
 - in active editor: decorate positions from lexer/parser-response
 
-- start server-process(es) automatically on activation
-- send '{{exit}}' from appropriate place
-
 - find (Json-)Object utilities
+
+- re-start server-process(es) automatically on process-errors, action, ...
+
+- send '{{exit}}' from appropriate place ? otherwise just cancel the child-process
 
 
 Github VisualizingHaskellAST

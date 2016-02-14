@@ -6,11 +6,18 @@ import * as decorator from './decorator';
 import * as zmq from './zmq';
 import * as Rx from 'rx';
 
+import * as cp from 'child_process';
+
 var EventEmitter = require('events');
 
 export function activate(context: vscode.ExtensionContext) {
 
-  console.log('vscode-haskell: Extension activated !');
+  let childProcess = cp.spawn('/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dist/build/hlpsj/hlpsj', [], {});
+  if (childProcess.pid) {
+    console.log('vscode-haskell: child-process started');
+  }
+        
+  console.log('vscode-haskell: Extension activated');
 
   var activeEditor = vscode.window.activeTextEditor;
   var e = new EventEmitter();
