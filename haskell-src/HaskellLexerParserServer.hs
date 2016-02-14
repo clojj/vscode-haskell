@@ -67,7 +67,7 @@ worker channel =
                   -- parsing
                   let out = runParser dynflags parserModule src
                   case out of
-                    -- todo: remove Partial for GHC >= 7.10 ?
+                    -- TODO remove Partial for GHC >= 7.10 ?
                     Partial s (s1, s2) -> do
                       liftIO $ putStrLn "Partial:"
                       liftIO $ putStrLn $ showData Parser 2 s
@@ -78,6 +78,7 @@ worker channel =
                       liftIO $ print sloc
                       writeChan channel $ "LEXING\n" ++ lexResult ++ "\nPARSING\n" ++ err ++ " " ++ show sloc
                     Parsed s -> do
+                      -- TODO emit ast as JSON !
                       let ast = showData Parser 2 s
                       -- liftIO $ putStrLn ast
                       writeChan channel ("LEXING\n" ++ lexResult ++ "\nPARSING\n" ++ ast ++ "\n")

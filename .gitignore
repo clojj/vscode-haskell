@@ -4,6 +4,7 @@ node_modules
 *.hi
 *.o
 HaskellLexerServer
+HaskellLexerParserServer
 BasicParserServer
 BasicParserServerJson
 zmq-test

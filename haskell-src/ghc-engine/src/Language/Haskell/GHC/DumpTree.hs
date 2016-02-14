@@ -1,4 +1,3 @@
-{-# LANGUAGE CPP #-}
 module Language.Haskell.GHC.DumpTree
   ( treesForTargetsSrc
   , treesForSession
@@ -15,7 +14,7 @@ import Control.Exception
 import Control.Monad
 import Data.Aeson (ToJSON(..), object, (.=))
 import Data.Data (Data, cast, toConstr, showConstr, gmapQ)
-import Data.List (isInfixOf, isPrefixOf)
+import Data.List (isInfixOf, isPrefixOf, intercalate)
 import Data.String (fromString)
 
 import Text.Show.Pretty (Value(..),valToDoc)
@@ -47,12 +46,8 @@ import ErrUtils
 
 pretty :: (Outputable a, GhcMonad m) => a -> m String
 pretty x = do
-#if MIN_VERSION_ghc(7,6,3)
   dynFlags <- getSessionDynFlags
   return $! showSDoc dynFlags (ppr x)
-#else
-  return $! showSDoc (ppr x)
-#endif
 
 pretty' :: (Outputable a, GhcMonad m) => a -> m Value
 pretty' = liftM String . pretty
@@ -219,12 +214,9 @@ prettyName nm = do
       | isExternalName nm = do
           mod <- prettyModule (nameModule nm)
           return $! Rec "" [("External", mod)]
-      | isInternalName nm = do
-          return $! String "Internal"
-      | isSystemName nm = do
-          return $! String "System"
-      | otherwise =
-          error "Unexpected NameSort"
+      | isInternalName nm = return $! String "Internal"
+      | isSystemName nm   = return $! String "System"
+      | otherwise         = error "Unexpected NameSort"
 
 prettyVar :: GhcMonad m => Var -> m Value
 prettyVar nm = do
@@ -236,7 +228,6 @@ prettyVar nm = do
 prettyModuleName :: GhcMonad m => ModuleName -> m Value
 prettyModuleName = return . String . moduleNameString
 
-#if MIN_VERSION_ghc(7,10,0)
 prettyModule :: GhcMonad m => Module -> m Value
 prettyModule mod = do
     pkg <- prettyPackageKey $ modulePackageKey mod
@@ -245,16 +236,6 @@ prettyModule mod = do
 
 prettyPackageKey :: GhcMonad m => PackageKey -> m Value
 prettyPackageKey = return . String . packageKeyString
-#else
-prettyModule :: GhcMonad m => Module -> m Value
-prettyModule mod = do
-    pkg <- prettyPackageId  $ modulePackageId mod
-    nm  <- prettyModuleName $ moduleName      mod
-    return $! Con "Module" [pkg, nm]
-
-prettyPackageId :: GhcMonad m => PackageId -> m Value
-prettyPackageId = return . String . packageIdString
-#endif
 
 {-------------------------------------------------------------------------------
   Extracting ASTs from a set of targets
@@ -274,44 +255,37 @@ errBagToStrList = map show . reverse . bagToList
 
 treesForModSummary :: GhcMonad m => ModSummary -> m Trees
 treesForModSummary modSummary = do
+   liftIO $ putStrLn "in treesForModSummary"
 
    --  let wrapErr se = return $ Left $ show $ errBagToStrList $ srcErrorMessages se
    --  let wrapErr se = return $ Left $ show $ bagToList $ mapBag errMsgSpan $ srcErrorMessages se
 
-   -- todo: return easy JSON-format
-   let wrapErr se = return $ Left result where
-                              sem = srcErrorMessages se
-                              msgs = errBagToStrList sem
-                              result = msgs ++ (bagToList $ mapBag (show . errMsgSpan) sem)
-
    eParsed <- handleSourceError wrapErr (Right <$> parseModule modSummary)
 
-   ts <- case eParsed of
-           Right parsed -> do
-             let wrapErr' se = return $ Left $ show $ bagToList $ srcErrorMessages se
-             eTypechecked <- handleSourceError wrapErr' (Right <$> typecheckModule parsed)
+   case eParsed of
+     Right parsed -> do
+       let wrapErr' se = return $ Left $ show $ bagToList $ srcErrorMessages se
+       eTypechecked <- handleSourceError wrapErr' (Right <$> typecheckModule parsed)
 
-             treeModule      <- pretty (ms_mod_name modSummary)
-             treeParsed      <- mkTree (pm_parsed_source parsed)
-             treeRenamed     <- mkRenamedTree     eTypechecked
-             treeTypechecked <- mkTypeCheckedTree eTypechecked
-             treeExports     <- mkExportTree      eTypechecked
-             let treeErrors = []
-             return Trees{..}
+       treeModule      <- pretty (ms_mod_name modSummary)
+       treeParsed      <- mkTree (pm_parsed_source parsed)
+       treeRenamed     <- mkRenamedTree     eTypechecked
+       treeTypechecked <- mkTypeCheckedTree eTypechecked
+       treeExports     <- mkExportTree      eTypechecked
+       let treeErrors = []
+       return Trees{..}
 
-           Left errors -> do
-             --  liftIO $ putStrLn $ "ERRORS: " ++ concat errors
+     Left errors -> do
+       --  liftIO $ putStrLn $ "ERRORS: " ++ concat errors
 
-             -- todo: better format ?
-             let t1 = String ""
-             return Trees{treeErrors = errors,
-                          treeModule = "",
-                          treeParsed = t1,
-                          treeRenamed = t1,
-                          treeTypechecked = t1,
-                          treeExports = t1}
-   return ts
-
+       -- todo: better format ?
+       let treeEmpty = String ""
+       return Trees{treeErrors = errors,
+                    treeModule = "",
+                    treeParsed = treeEmpty,
+                    treeRenamed = treeEmpty,
+                    treeTypechecked = treeEmpty,
+                    treeExports = treeEmpty}
   where
     mkTree :: (Data a,GhcMonad m) => a -> m Value
     mkTree = liftM cleanupValue . valueFromData
@@ -343,42 +317,62 @@ treeDumpFlags dynFlags = dynFlags {
 -- | Generate trees for modules in session
 treesForSession :: GhcMonad m => m [Trees]
 treesForSession = do
+  liftIO $ putStrLn "in treesForSession"
   hscEnv <- getSession
   mapM treesForModSummary $ hsc_mod_graph hscEnv
 
 -- | Generate trees for given sources, when already in GHC
 -- TODO exaustive pattern-match
-treesForTargetsSrc :: GhcMonad m => [String] -> m [Trees]
-treesForTargetsSrc (src : srcs) = do
-  liftIO $ putStrLn "in treesForTargets"
-  liftIO $ putStrLn src
-  gbracket
-    getSessionDynFlags
-    setSessionDynFlags
-    $ \dynFlags -> do
-      let dynFlags' = treeDumpFlags dynFlags
-      void $ setSessionDynFlags dynFlags'
-      -- Construct module graph
-      setTargets (map mkTarget (src : srcs))
-      void $ load LoadAllTargets
-      --
-      -- generate each module
-      treesForSession
+treesForTargetsSrc :: GhcMonad m => FilePath -> [String] -> m [Trees]
+treesForTargetsSrc filePath srcs = do
+    liftIO $ putStrLn $ "sources:\n" ++ intercalate "\n---\n" srcs
+    gbracket
+      getSessionDynFlags
+      setSessionDynFlags
+      $ \dynFlags -> do
+        let dynFlags' = treeDumpFlags dynFlags
+        void $ setSessionDynFlags dynFlags'
 
+        -- Construct module graph
+        setTargets (map (mkTarget filePath) srcs)
+        -- void $ load LoadAllTargets
+
+        -- take care of Lexer errors here !
+        result <- handleSourceError wrapErr (Right <$> load LoadAllTargets)
+        case result of
+          Right _ -> treesForSession -- generate each module
+          Left failure ->
+            let treeEmpty = String "" in
+            return [Trees {
+                    treeErrors = failure,
+                    treeModule = "",
+                    treeParsed = treeEmpty,
+                    treeRenamed = treeEmpty,
+                    treeTypechecked = treeEmpty,
+                    treeExports = treeEmpty
+                   }]
   where
-    mkTarget :: String -> Target
-    mkTarget s = Target {
-        -- todo: find better TargetFile
-        targetId           = TargetFile "/Users/jwin/VSCodeExtensions/vscode-extension-samples/decorator-sample/haskell-src/data/HelloWorld2.hs" Nothing
+    mkTarget :: FilePath -> String -> Target
+    mkTarget fp s = Target {
+        -- TODO ? find better TargetFile
+        targetId           = TargetFile fp Nothing -- TargetModule $ mkModuleName "TODO ?"
       , targetAllowObjCode = False
-      , targetContents     = Just (stringToStringBuffer s, posixSecondsToUTCTime $ fromIntegral (10 :: Integer))
+      , targetContents     = Just (stringToStringBuffer s, posixSecondsToUTCTime $ fromIntegral (0 :: Integer))
       }
 
+-- todo: return easy JSON-format
+wrapErr :: GhcMonad m => SourceError -> m (Either [String] b)
+wrapErr se = return $ Left result where
+              sem = srcErrorMessages se
+              msgs = errBagToStrList sem
+              result = msgs ++ bagToList (mapBag (show . errMsgSpan) sem)
 
 -- | Convert Trees to Doc
 treesToDoc :: Trees -> Doc
-treesToDoc Trees{..} = do
-  text ("# " ++ treeModule)
+treesToDoc Trees{..} =
+  text ("# Errors" ++ intercalate "\n" treeErrors)
+  $$
+  text ("# Module" ++ treeModule)
   $$
   text ""
   $$
@@ -397,25 +391,10 @@ treesToDoc Trees{..} = do
 -------------------------------------------------------------------------------}
 dumpText :: [Trees] -> IO ()
 dumpText = mapM_ (putStrLn . render . treesToDoc)
-  -- where
-  --   go :: Trees -> IO ()
-  --   go Trees{..} = do
-  --     section ("# " ++ treesModule) $ do
-  --       section "## Parsed"      $ showTree treeParsed
-  --       section "## Renamed"     $ showTree treeRenamed
-  --       section "## Typechecked" $ showTree treeTypechecked
-  --       section "## Exports"     $ showTree treeExports
-  --
-  --   section :: String -> IO () -> IO ()
-  --   section title = bracket_ (putStrLn title) (putStrLn "")
-  --
-  --   showTree :: Value -> IO ()
-  --   showTree = putStrLn . valToStr
 
 {-------------------------------------------------------------------------------
   Dump in JSON format
 -------------------------------------------------------------------------------}
-
 instance ToJSON Value where
   -- Special cases
   toJSON (Con "False" []) = Aeson.Bool False
@@ -435,7 +414,6 @@ instance ToJSON Value where
   toJSON (Rec "" flds) = object $ map (\(fld, val) -> fromString fld .= val) flds
   toJSON _             = error "toJSON: Unexpected Value"
 
-
 instance ToJSON Trees where
   toJSON Trees{..} = object [
       "errors"      .= treeErrors
@@ -448,14 +426,3 @@ instance ToJSON Trees where
 
 dumpJson :: [Trees] -> IO ()
 dumpJson = B.Lazy.putStr . Aeson.encode
-
-{-------------------------------------------------------------------------------
-  Orphans
--------------------------------------------------------------------------------}
-
-#if MIN_VERSION_ghc(7,8,0)
-#else
-instance Applicative Ghc where
-  pure  = return
-  (<*>) = ap
-#endif

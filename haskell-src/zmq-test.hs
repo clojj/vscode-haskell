@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import System.ZMQ4.Monadic
 
-import Control.Concurrent (threadDelay)
+-- import Control.Concurrent (threadDelay)
 
 import System.Environment (getArgs)
 import qualified Data.ByteString.UTF8 as UTF8
@@ -18,10 +18,9 @@ main = do
 
             -- forever $ do
             lexAndParse s src
-            liftIO $ threadDelay (1 * 2000 * 1000)
-
-            lexAndParse s src
-            liftIO $ threadDelay (1 * 2000 * 1000)
+            -- liftIO $ threadDelay (1 * 2000 * 1000)
+            -- lexAndParse s src
+            -- liftIO $ threadDelay (1 * 2000 * 1000)
 
             send s [] "{{exit}}"
     _ -> error "Usage: zmq-test filename.hs"
