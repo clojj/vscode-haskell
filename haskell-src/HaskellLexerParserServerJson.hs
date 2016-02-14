@@ -190,6 +190,8 @@ valueFromData = go False
     go :: (Data a, GHC.GhcMonad m) => Bool -> a -> m Value
     go b x
       -- Types where we want to show both a pretty-printed value and a tree
+      | Just x' <- cast x :: Maybe HsLit = pretty' x'
+      | Just x' <- cast x :: Maybe OverLitVal = pretty' x'
       | Just x' <- cast x :: Maybe (GHC.HsType Name) = withPretty b x'
       | Just x' <- cast x :: Maybe (GHC.HsType Var)  = withPretty b x'
       | Just x' <- cast x :: Maybe GHC.Type          = withPretty b x'
