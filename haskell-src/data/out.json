@@ -1,0 +1,133 @@
+[
+  [
+    "Located Token: ITmodule\nSource: module\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 1 7\n\n",
+    "Located Token: ITconid \"HelloWorld\"\nSource: HelloWorld\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 8 18\n\n",
+    "Located Token: ITwhere\nSource: where\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 1 19 24\n\n",
+    "Located Token: ITvocurly\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 2 1\n\n",
+    "Located Token: ITvarid \"main\"\nSource: main\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 1 5\n\n",
+    "Located Token: ITequal\nSource: =\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 6 7\n\n",
+    "Located Token: ITvarid \"putStrLn\"\nSource: putStrLn\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 8 16\n\n",
+    "Located Token: ITstring \"\\\"Hello, World!\\\"\" \"Hello, World!\"\nSource: \"Hello, World!\"\nLocation: RealSrcSpan SrcSpanOneLine \"<interactive>\" 2 17 32\n\n",
+    "Located Token: ITsemi\nSource: \nLocation: RealSrcSpan SrcSpanPoint \"<interactive>\" 3 1\n\n"
+  ],
+  {
+    "renamed": "",
+    "typechecked": "",
+    "exports": "",
+    "module": "",
+    "errors": [],
+    "parsed": {
+      "location": "<interactive>:1:1",
+      "HsModule": [
+        {
+          "Just": [
+            "HelloWorld"
+          ]
+        },
+        "Nothing",
+        [],
+        [
+          {
+            "location": "<interactive>:2:1-31",
+            "ValD": [
+              {
+                "FunBind": [
+                  {
+                    "location": "<interactive>:2:1-4",
+                    "VarName": "main"
+                  },
+                  false,
+                  {
+                    "MG": [
+                      [
+                        {
+                          "location": "<interactive>:2:1-31",
+                          "Match": [
+                            {
+                              "Just": [
+                                [
+                                  {
+                                    "location": "<interactive>:2:1-4",
+                                    "VarName": "main"
+                                  },
+                                  false
+                                ]
+                              ]
+                            },
+                            [],
+                            "Nothing",
+                            {
+                              "GRHSs": [
+                                [
+                                  {
+                                    "location": "<interactive>:2:6-31",
+                                    "GRHS": [
+                                      [],
+                                      {
+                                        "location": "<interactive>:2:8-31",
+                                        "HsApp": [
+                                          {
+                                            "location": "<interactive>:2:8-15",
+                                            "HsVar": [
+                                              {
+                                                "VarName": "putStrLn"
+                                              }
+                                            ]
+                                          },
+                                          {
+                                            "HsLit": [
+                                              {
+                                                "HsString": [
+                                                  [
+                                                    "'\"'",
+                                                    "'H'",
+                                                    "'e'",
+                                                    "'l'",
+                                                    "'l'",
+                                                    "'o'",
+                                                    "','",
+                                                    "' '",
+                                                    "'W'",
+                                                    "'o'",
+                                                    "'r'",
+                                                    "'l'",
+                                                    "'d'",
+                                                    "'!'",
+                                                    "'\"'"
+                                                  ],
+                                                  "{abstract:FastString}"
+                                                ]
+                                              }
+                                            ],
+                                            "location": "<interactive>:2:17-31"
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ],
+                                "EmptyLocalBinds"
+                              ]
+                            }
+                          ]
+                        }
+                      ],
+                      [],
+                      "PlaceHolder",
+                      "FromSource"
+                    ]
+                  },
+                  "WpHole",
+                  "PlaceHolder",
+                  []
+                ]
+              }
+            ]
+          }
+        ],
+        "Nothing",
+        "Nothing"
+      ]
+    }
+  }
+]
