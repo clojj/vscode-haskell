@@ -1,5 +1,6 @@
 module HelloWorld2 where
 
+-- comment 1
 main = do
   putStrLn "Hello, World!"
   putStrLn "multiline1111\

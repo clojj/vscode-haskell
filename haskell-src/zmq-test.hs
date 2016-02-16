@@ -10,11 +10,11 @@ main :: IO ()
 main = do
   args <- getArgs
   case args of
-    [src_filename] -> do
+    [endpoint, src_filename] -> do
       src <- readFile src_filename
       runZMQ $ do
             s <- socket Req
-            bind s "ipc:///tmp/parser"
+            bind s $ "ipc:///tmp/" ++ endpoint
 
             -- forever $ do
             lexAndParse s src

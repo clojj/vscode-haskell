@@ -1,0 +1,14 @@
+{
+  "parsing": null,
+  "lexing": {
+    "Left": [
+      "parse error on input ‘}’",
+      [
+        1,
+        1,
+        1,
+        2
+      ]
+    ]
+  }
+}

@@ -1,453 +1,6 @@
-[
-  [
-    [
-      "ITmodule",
-      [
-        1,
-        1
-      ],
-      [
-        1,
-        7
-      ]
-    ],
-    [
-      "ITconid \"HelloWorld2\"",
-      [
-        1,
-        8
-      ],
-      [
-        1,
-        19
-      ]
-    ],
-    [
-      "ITwhere",
-      [
-        1,
-        20
-      ],
-      [
-        1,
-        25
-      ]
-    ],
-    [
-      "ITvocurly",
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        1
-      ]
-    ],
-    [
-      "ITvarid \"main\"",
-      [
-        3,
-        1
-      ],
-      [
-        3,
-        5
-      ]
-    ],
-    [
-      "ITequal",
-      [
-        3,
-        6
-      ],
-      [
-        3,
-        7
-      ]
-    ],
-    [
-      "ITdo",
-      [
-        3,
-        8
-      ],
-      [
-        3,
-        10
-      ]
-    ],
-    [
-      "ITvocurly",
-      [
-        4,
-        3
-      ],
-      [
-        4,
-        3
-      ]
-    ],
-    [
-      "ITvarid \"putStrLn\"",
-      [
-        4,
-        3
-      ],
-      [
-        4,
-        11
-      ]
-    ],
-    [
-      "ITstring \"\\\"Hello, World!\\\"\" \"Hello, World!\"",
-      [
-        4,
-        12
-      ],
-      [
-        4,
-        27
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        5,
-        3
-      ],
-      [
-        5,
-        3
-      ]
-    ],
-    [
-      "ITvarid \"putStrLn\"",
-      [
-        5,
-        3
-      ],
-      [
-        5,
-        11
-      ]
-    ],
-    [
-      "ITstring \"\\\"multiline1111\\\\\\n  \\\\line2222\\\\\\n  \\\\line333\\\"\" \"multiline1111line2222line333\"",
-      [
-        5,
-        12
-      ],
-      [
-        7,
-        12
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        8,
-        3
-      ],
-      [
-        8,
-        3
-      ]
-    ],
-    [
-      "ITlet",
-      [
-        8,
-        3
-      ],
-      [
-        8,
-        6
-      ]
-    ],
-    [
-      "ITvocurly",
-      [
-        8,
-        7
-      ],
-      [
-        8,
-        7
-      ]
-    ],
-    [
-      "ITvarid \"result\"",
-      [
-        8,
-        7
-      ],
-      [
-        8,
-        13
-      ]
-    ],
-    [
-      "ITequal",
-      [
-        8,
-        14
-      ],
-      [
-        8,
-        15
-      ]
-    ],
-    [
-      "ITvarid \"f\"",
-      [
-        8,
-        16
-      ],
-      [
-        8,
-        17
-      ]
-    ],
-    [
-      "ITinteger \"3\" 3",
-      [
-        8,
-        18
-      ],
-      [
-        8,
-        19
-      ]
-    ],
-    [
-      "ITvccurly",
-      [
-        9,
-        3
-      ],
-      [
-        9,
-        3
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        9,
-        3
-      ],
-      [
-        9,
-        3
-      ]
-    ],
-    [
-      "ITvarid \"print\"",
-      [
-        9,
-        3
-      ],
-      [
-        9,
-        8
-      ]
-    ],
-    [
-      "ITvarid \"result\"",
-      [
-        9,
-        9
-      ],
-      [
-        9,
-        15
-      ]
-    ],
-    [
-      "ITlineComment \"-- comment 2\"",
-      [
-        11,
-        1
-      ],
-      [
-        11,
-        13
-      ]
-    ],
-    [
-      "ITvccurly",
-      [
-        12,
-        1
-      ],
-      [
-        12,
-        1
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        12,
-        1
-      ],
-      [
-        12,
-        1
-      ]
-    ],
-    [
-      "ITvarid \"f\"",
-      [
-        12,
-        1
-      ],
-      [
-        12,
-        2
-      ]
-    ],
-    [
-      "ITdcolon",
-      [
-        12,
-        3
-      ],
-      [
-        12,
-        5
-      ]
-    ],
-    [
-      "ITconid \"Int\"",
-      [
-        12,
-        6
-      ],
-      [
-        12,
-        9
-      ]
-    ],
-    [
-      "ITrarrow",
-      [
-        12,
-        10
-      ],
-      [
-        12,
-        12
-      ]
-    ],
-    [
-      "ITconid \"Int\"",
-      [
-        12,
-        13
-      ],
-      [
-        12,
-        16
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        13,
-        1
-      ],
-      [
-        13,
-        1
-      ]
-    ],
-    [
-      "ITvarid \"f\"",
-      [
-        13,
-        1
-      ],
-      [
-        13,
-        2
-      ]
-    ],
-    [
-      "ITvarid \"x\"",
-      [
-        13,
-        3
-      ],
-      [
-        13,
-        4
-      ]
-    ],
-    [
-      "ITequal",
-      [
-        13,
-        5
-      ],
-      [
-        13,
-        6
-      ]
-    ],
-    [
-      "ITvarid \"x\"",
-      [
-        13,
-        7
-      ],
-      [
-        13,
-        8
-      ]
-    ],
-    [
-      "ITvarsym \"+\"",
-      [
-        13,
-        9
-      ],
-      [
-        13,
-        10
-      ]
-    ],
-    [
-      "ITinteger \"5\" 5",
-      [
-        13,
-        11
-      ],
-      [
-        13,
-        12
-      ]
-    ],
-    [
-      "ITsemi",
-      [
-        14,
-        1
-      ],
-      [
-        14,
-        1
-      ]
-    ]
-  ],
-  {
-    "renamed": "",
-    "typechecked": "",
-    "exports": "",
-    "module": "",
-    "errors": [],
-    "parsed": {
+{
+  "parsing": {
+    "Right": {
       "location": "<interactive>:1:1",
       "HsModule": [
         {
@@ -459,12 +12,12 @@
         [],
         [
           {
-            "location": "<interactive>:(3,1)-(9,14)",
+            "location": "<interactive>:(4,1)-(10,14)",
             "ValD": [
               {
                 "FunBind": [
                   {
-                    "location": "<interactive>:3:1-4",
+                    "location": "<interactive>:4:1-4",
                     "VarName": "main"
                   },
                   false,
@@ -472,13 +25,13 @@
                     "MG": [
                       [
                         {
-                          "location": "<interactive>:(3,1)-(9,14)",
+                          "location": "<interactive>:(4,1)-(10,14)",
                           "Match": [
                             {
                               "Just": [
                                 [
                                   {
-                                    "location": "<interactive>:3:1-4",
+                                    "location": "<interactive>:4:1-4",
                                     "VarName": "main"
                                   },
                                   false
@@ -491,54 +44,19 @@
                               "GRHSs": [
                                 [
                                   {
-                                    "location": "<interactive>:(3,6)-(9,14)",
+                                    "location": "<interactive>:(4,6)-(10,14)",
                                     "GRHS": [
                                       [],
                                       {
-                                        "location": "<interactive>:(3,8)-(9,14)",
+                                        "location": "<interactive>:(4,8)-(10,14)",
                                         "HsDo": [
                                           "DoExpr",
                                           [
                                             {
-                                              "location": "<interactive>:4:3-26",
+                                              "location": "<interactive>:5:3-26",
                                               "BodyStmt": [
                                                 {
-                                                  "location": "<interactive>:4:3-26",
-                                                  "HsApp": [
-                                                    {
-                                                      "location": "<interactive>:4:3-10",
-                                                      "HsVar": [
-                                                        {
-                                                          "VarName": "putStrLn"
-                                                        }
-                                                      ]
-                                                    },
-                                                    {
-                                                      "HsLit": [
-                                                        "\"Hello, World!\""
-                                                      ],
-                                                      "location": "<interactive>:4:12-26"
-                                                    }
-                                                  ]
-                                                },
-                                                {
-                                                  "HsLit": [
-                                                    "\"noSyntaxExpr\""
-                                                  ]
-                                                },
-                                                {
-                                                  "HsLit": [
-                                                    "\"noSyntaxExpr\""
-                                                  ]
-                                                },
-                                                "PlaceHolder"
-                                              ]
-                                            },
-                                            {
-                                              "location": "<interactive>:(5,3)-(7,11)",
-                                              "BodyStmt": [
-                                                {
-                                                  "location": "<interactive>:(5,3)-(7,11)",
+                                                  "location": "<interactive>:5:3-26",
                                                   "HsApp": [
                                                     {
                                                       "location": "<interactive>:5:3-10",
@@ -550,9 +68,9 @@
                                                     },
                                                     {
                                                       "HsLit": [
-                                                        "\"multiline1111line2222line333\""
+                                                        "\"Hello, World!\""
                                                       ],
-                                                      "location": "<interactive>:(5,12)-(7,11)"
+                                                      "location": "<interactive>:5:12-26"
                                                     }
                                                   ]
                                                 },
@@ -570,7 +88,42 @@
                                               ]
                                             },
                                             {
-                                              "location": "<interactive>:8:3-18",
+                                              "location": "<interactive>:(6,3)-(8,11)",
+                                              "BodyStmt": [
+                                                {
+                                                  "location": "<interactive>:(6,3)-(8,11)",
+                                                  "HsApp": [
+                                                    {
+                                                      "location": "<interactive>:6:3-10",
+                                                      "HsVar": [
+                                                        {
+                                                          "VarName": "putStrLn"
+                                                        }
+                                                      ]
+                                                    },
+                                                    {
+                                                      "HsLit": [
+                                                        "\"multiline1111line2222line333\""
+                                                      ],
+                                                      "location": "<interactive>:(6,12)-(8,11)"
+                                                    }
+                                                  ]
+                                                },
+                                                {
+                                                  "HsLit": [
+                                                    "\"noSyntaxExpr\""
+                                                  ]
+                                                },
+                                                {
+                                                  "HsLit": [
+                                                    "\"noSyntaxExpr\""
+                                                  ]
+                                                },
+                                                "PlaceHolder"
+                                              ]
+                                            },
+                                            {
+                                              "location": "<interactive>:9:3-18",
                                               "LetStmt": [
                                                 {
                                                   "HsValBinds": [
@@ -578,10 +131,10 @@
                                                       "ValBindsIn": [
                                                         [
                                                           {
-                                                            "location": "<interactive>:8:7-18",
+                                                            "location": "<interactive>:9:7-18",
                                                             "FunBind": [
                                                               {
-                                                                "location": "<interactive>:8:7-12",
+                                                                "location": "<interactive>:9:7-12",
                                                                 "VarName": "result"
                                                               },
                                                               false,
@@ -589,13 +142,13 @@
                                                                 "MG": [
                                                                   [
                                                                     {
-                                                                      "location": "<interactive>:8:7-18",
+                                                                      "location": "<interactive>:9:7-18",
                                                                       "Match": [
                                                                         {
                                                                           "Just": [
                                                                             [
                                                                               {
-                                                                                "location": "<interactive>:8:7-12",
+                                                                                "location": "<interactive>:9:7-12",
                                                                                 "VarName": "result"
                                                                               },
                                                                               false
@@ -608,14 +161,14 @@
                                                                           "GRHSs": [
                                                                             [
                                                                               {
-                                                                                "location": "<interactive>:8:14-18",
+                                                                                "location": "<interactive>:9:14-18",
                                                                                 "GRHS": [
                                                                                   [],
                                                                                   {
-                                                                                    "location": "<interactive>:8:16-18",
+                                                                                    "location": "<interactive>:9:16-18",
                                                                                     "HsApp": [
                                                                                       {
-                                                                                        "location": "<interactive>:8:16",
+                                                                                        "location": "<interactive>:9:16",
                                                                                         "HsVar": [
                                                                                           {
                                                                                             "VarName": "f"
@@ -623,7 +176,7 @@
                                                                                         ]
                                                                                       },
                                                                                       {
-                                                                                        "location": "<interactive>:8:18",
+                                                                                        "location": "<interactive>:9:18",
                                                                                         "HsOverLit": [
                                                                                           {
                                                                                             "OverLit": [
@@ -669,13 +222,13 @@
                                               ]
                                             },
                                             {
-                                              "location": "<interactive>:9:3-14",
+                                              "location": "<interactive>:10:3-14",
                                               "BodyStmt": [
                                                 {
-                                                  "location": "<interactive>:9:3-14",
+                                                  "location": "<interactive>:10:3-14",
                                                   "HsApp": [
                                                     {
-                                                      "location": "<interactive>:9:3-7",
+                                                      "location": "<interactive>:10:3-7",
                                                       "HsVar": [
                                                         {
                                                           "VarName": "print"
@@ -683,7 +236,7 @@
                                                       ]
                                                     },
                                                     {
-                                                      "location": "<interactive>:9:9-14",
+                                                      "location": "<interactive>:10:9-14",
                                                       "HsVar": [
                                                         {
                                                           "VarName": "result"
@@ -731,13 +284,13 @@
             ]
           },
           {
-            "location": "<interactive>:12:1-15",
+            "location": "<interactive>:13:1-15",
             "SigD": [
               {
                 "TypeSig": [
                   [
                     {
-                      "location": "<interactive>:12:1",
+                      "location": "<interactive>:13:1",
                       "VarName": "f"
                     }
                   ],
@@ -753,10 +306,10 @@
                       },
                       [],
                       {
-                        "location": "<interactive>:12:6-15",
+                        "location": "<interactive>:13:6-15",
                         "HsFunTy": [
                           {
-                            "location": "<interactive>:12:6-8",
+                            "location": "<interactive>:13:6-8",
                             "HsTyVar": [
                               {
                                 "TcClsName": "Int"
@@ -764,7 +317,7 @@
                             ]
                           },
                           {
-                            "location": "<interactive>:12:13-15",
+                            "location": "<interactive>:13:13-15",
                             "HsTyVar": [
                               {
                                 "TcClsName": "Int"
@@ -774,7 +327,7 @@
                         ]
                       }
                     ],
-                    "location": "<interactive>:12:6-15"
+                    "location": "<interactive>:13:6-15"
                   },
                   "PlaceHolder"
                 ]
@@ -782,12 +335,12 @@
             ]
           },
           {
-            "location": "<interactive>:13:1-11",
+            "location": "<interactive>:14:1-11",
             "ValD": [
               {
                 "FunBind": [
                   {
-                    "location": "<interactive>:13:1",
+                    "location": "<interactive>:14:1",
                     "VarName": "f"
                   },
                   false,
@@ -795,13 +348,13 @@
                     "MG": [
                       [
                         {
-                          "location": "<interactive>:13:1-11",
+                          "location": "<interactive>:14:1-11",
                           "Match": [
                             {
                               "Just": [
                                 [
                                   {
-                                    "location": "<interactive>:13:1",
+                                    "location": "<interactive>:14:1",
                                     "VarName": "f"
                                   },
                                   false
@@ -810,7 +363,7 @@
                             },
                             [
                               {
-                                "location": "<interactive>:13:3",
+                                "location": "<interactive>:14:3",
                                 "VarPat": [
                                   {
                                     "VarName": "x"
@@ -823,14 +376,14 @@
                               "GRHSs": [
                                 [
                                   {
-                                    "location": "<interactive>:13:5-11",
+                                    "location": "<interactive>:14:5-11",
                                     "GRHS": [
                                       [],
                                       {
-                                        "location": "<interactive>:13:7-11",
+                                        "location": "<interactive>:14:7-11",
                                         "OpApp": [
                                           {
-                                            "location": "<interactive>:13:7",
+                                            "location": "<interactive>:14:7",
                                             "HsVar": [
                                               {
                                                 "VarName": "x"
@@ -838,7 +391,7 @@
                                             ]
                                           },
                                           {
-                                            "location": "<interactive>:13:9",
+                                            "location": "<interactive>:14:9",
                                             "HsVar": [
                                               {
                                                 "VarName": "+"
@@ -847,7 +400,7 @@
                                           },
                                           "PlaceHolder",
                                           {
-                                            "location": "<interactive>:13:11",
+                                            "location": "<interactive>:14:11",
                                             "HsOverLit": [
                                               {
                                                 "OverLit": [
@@ -891,5 +444,378 @@
         "Nothing"
       ]
     }
+  },
+  "lexing": {
+    "Right": [
+      [
+        "ITmodule",
+        [
+          1,
+          1,
+          1,
+          7
+        ]
+      ],
+      [
+        "ITconid \"HelloWorld2\"",
+        [
+          1,
+          8,
+          1,
+          19
+        ]
+      ],
+      [
+        "ITwhere",
+        [
+          1,
+          20,
+          1,
+          25
+        ]
+      ],
+      [
+        "ITlineComment \"-- comment 1\"",
+        [
+          3,
+          1,
+          3,
+          13
+        ]
+      ],
+      [
+        "ITvocurly",
+        [
+          4,
+          1,
+          4,
+          1
+        ]
+      ],
+      [
+        "ITvarid \"main\"",
+        [
+          4,
+          1,
+          4,
+          5
+        ]
+      ],
+      [
+        "ITequal",
+        [
+          4,
+          6,
+          4,
+          7
+        ]
+      ],
+      [
+        "ITdo",
+        [
+          4,
+          8,
+          4,
+          10
+        ]
+      ],
+      [
+        "ITvocurly",
+        [
+          5,
+          3,
+          5,
+          3
+        ]
+      ],
+      [
+        "ITvarid \"putStrLn\"",
+        [
+          5,
+          3,
+          5,
+          11
+        ]
+      ],
+      [
+        "ITstring \"\\\"Hello, World!\\\"\" \"Hello, World!\"",
+        [
+          5,
+          12,
+          5,
+          27
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          6,
+          3,
+          6,
+          3
+        ]
+      ],
+      [
+        "ITvarid \"putStrLn\"",
+        [
+          6,
+          3,
+          6,
+          11
+        ]
+      ],
+      [
+        "ITstring \"\\\"multiline1111\\\\\\n  \\\\line2222\\\\\\n  \\\\line333\\\"\" \"multiline1111line2222line333\"",
+        [
+          6,
+          12,
+          8,
+          12
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          9,
+          3,
+          9,
+          3
+        ]
+      ],
+      [
+        "ITlet",
+        [
+          9,
+          3,
+          9,
+          6
+        ]
+      ],
+      [
+        "ITvocurly",
+        [
+          9,
+          7,
+          9,
+          7
+        ]
+      ],
+      [
+        "ITvarid \"result\"",
+        [
+          9,
+          7,
+          9,
+          13
+        ]
+      ],
+      [
+        "ITequal",
+        [
+          9,
+          14,
+          9,
+          15
+        ]
+      ],
+      [
+        "ITvarid \"f\"",
+        [
+          9,
+          16,
+          9,
+          17
+        ]
+      ],
+      [
+        "ITinteger \"3\" 3",
+        [
+          9,
+          18,
+          9,
+          19
+        ]
+      ],
+      [
+        "ITvccurly",
+        [
+          10,
+          3,
+          10,
+          3
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          10,
+          3,
+          10,
+          3
+        ]
+      ],
+      [
+        "ITvarid \"print\"",
+        [
+          10,
+          3,
+          10,
+          8
+        ]
+      ],
+      [
+        "ITvarid \"result\"",
+        [
+          10,
+          9,
+          10,
+          15
+        ]
+      ],
+      [
+        "ITlineComment \"-- comment 2\"",
+        [
+          12,
+          1,
+          12,
+          13
+        ]
+      ],
+      [
+        "ITvccurly",
+        [
+          13,
+          1,
+          13,
+          1
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          13,
+          1,
+          13,
+          1
+        ]
+      ],
+      [
+        "ITvarid \"f\"",
+        [
+          13,
+          1,
+          13,
+          2
+        ]
+      ],
+      [
+        "ITdcolon",
+        [
+          13,
+          3,
+          13,
+          5
+        ]
+      ],
+      [
+        "ITconid \"Int\"",
+        [
+          13,
+          6,
+          13,
+          9
+        ]
+      ],
+      [
+        "ITrarrow",
+        [
+          13,
+          10,
+          13,
+          12
+        ]
+      ],
+      [
+        "ITconid \"Int\"",
+        [
+          13,
+          13,
+          13,
+          16
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          14,
+          1,
+          14,
+          1
+        ]
+      ],
+      [
+        "ITvarid \"f\"",
+        [
+          14,
+          1,
+          14,
+          2
+        ]
+      ],
+      [
+        "ITvarid \"x\"",
+        [
+          14,
+          3,
+          14,
+          4
+        ]
+      ],
+      [
+        "ITequal",
+        [
+          14,
+          5,
+          14,
+          6
+        ]
+      ],
+      [
+        "ITvarid \"x\"",
+        [
+          14,
+          7,
+          14,
+          8
+        ]
+      ],
+      [
+        "ITvarsym \"+\"",
+        [
+          14,
+          9,
+          14,
+          10
+        ]
+      ],
+      [
+        "ITinteger \"5\" 5",
+        [
+          14,
+          11,
+          14,
+          12
+        ]
+      ],
+      [
+        "ITsemi",
+        [
+          15,
+          1,
+          15,
+          1
+        ]
+      ]
+    ]
   }
-]
+}
