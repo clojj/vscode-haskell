@@ -1,7 +1,6 @@
 module Main (main) where
 
 import           Language.Haskell.GHC.DumpTree
-import Jsonize
 
 import qualified GHC
 import           GHC.Paths                     (libdir)
