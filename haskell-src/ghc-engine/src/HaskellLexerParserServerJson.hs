@@ -19,13 +19,12 @@ import qualified Data.ByteString.UTF8        as UTF8
 import           System.ZMQ4.Monadic
 
 -- lexing
+import           SrcLoc
 import           FastString                  (mkFastString)
 import           Lexer
-import           SrcLoc
 import           StringBuffer
 
 import qualified Data.Aeson                  as Aeson
-import           GHC
 
 import           ErrUtils
 
@@ -66,15 +65,15 @@ worker channel =
                   let sb = stringToStringBuffer (UTF8.toString src)
                   let pResult = lexTokenStream sb lexLoc dynflags
                   lexResult <- case pResult of
-                              -- POk _ toks    -> liftIO $ putStr $ concatMap showToken toks
-                              POk _ toks -> return $ map showTokenWithSource (GHC.addSourceToTokens lexLoc sb toks)
+                              POk _ toks -> return $ map showToken toks
+                              -- POk _ toks -> return $ map showTokenWithSource (GHC.addSourceToTokens lexLoc sb toks)
                               PFailed srcspan msg -> do
                                 let lexerError = mkPlainErrMsg dynflags srcspan msg
                                 liftIO $ print $ show srcspan
                                 liftIO $ do
                                   putStrLn "Lexer Error:"
                                   print lexerError
-                                return [show lexerError]
+                                return [(show lexerError, (0::Int,0::Int), (0::Int,0::Int))]
                   -- TODO only parse, if there are no lexer errors ?
 
                   -- parsing
@@ -99,7 +98,7 @@ worker channel =
                                   treeTypechecked = treeEmpty,
                                   treeExports = treeEmpty}
                       let ts = Aeson.encode trees
-                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ts) ++ "\n"
+                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ show lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ts) ++ "\n"
 
                     Parsed s -> do
                       treeParsed <- mkTree s
@@ -116,10 +115,10 @@ worker channel =
                       -- let ast = showData Parser 2 s
                       -- liftIO $ putStrLn ast
 
-                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ concat lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ast) ++ "\n"
+                      liftIO $ writeChan channel $ UTF8.fromString $ "LEXING\n" ++ show lexResult ++ "\nPARSING\n" ++ UTF8.toString (BSL.toStrict ast) ++ "\n"
 
   where
-    mkTree :: (Data a,GhcMonad m) => a -> m Value
+    mkTree :: (Data a, GHC.GhcMonad m) => a -> m Value
     mkTree = liftM cleanupValue . valueFromData
 
 -- output of lexer
@@ -128,10 +127,23 @@ worker channel =
 -- ITocurly, ITccurly = real braces for no-layout blocks
 -- ITsemi = blocks(?)
 
-showToken :: GenLocated SrcSpan Token -> String
-showToken t = "srcLoc: " ++ "\n" ++ srcloc ++ "\ntok: " ++ tok where
-  srcloc = show $ getLoc t
-  tok = show $ unLoc t
+getGhcLoc :: GHC.SrcSpan -> (Int, Int)
+getGhcLoc (GHC.RealSrcSpan ss)  = (GHC.srcSpanStartLine ss, GHC.srcSpanStartCol ss)
+getGhcLoc (GHC.UnhelpfulSpan _) = (-1,-1)
+
+-- | gets the (row,col) of the end of the @GHC.SrcSpan@, or (-1,-1)
+-- if there is an @GHC.UnhelpfulSpan@
+getGhcLocEnd :: GHC.SrcSpan -> (Int, Int)
+getGhcLocEnd (GHC.RealSrcSpan ss)  = (GHC.srcSpanEndLine ss, GHC.srcSpanEndCol ss)
+getGhcLocEnd (GHC.UnhelpfulSpan _) = (-1,-1)
+
+showToken :: SrcLoc.Located Token -> (String, (Int, Int), (Int, Int))
+-- showToken t = show location ++ "\n" ++ tok ++ "\n" where
+showToken t = (tok, start, end) where
+  srcSpan = getLoc t
+  start = getGhcLoc srcSpan
+  end = getGhcLocEnd srcSpan
+  tok = show $ GHC.unLoc t
 
 showTokenWithSource :: (GHC.Located Token, String) -> String
 showTokenWithSource (loctok, src) =
@@ -139,6 +151,6 @@ showTokenWithSource (loctok, src) =
   "Source: " ++ src ++ "\n" ++
   "Location: " ++ srcloc ++
   "\n\n" where
-    tok = show $ unLoc loctok
-    srcloc = show $ getLoc loctok
+    tok = show $ GHC.unLoc loctok
+    srcloc = show $ GHC.getLoc loctok
 
