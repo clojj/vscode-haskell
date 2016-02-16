@@ -1,11 +1,10 @@
-- `ghc-engine/src/HaskellLexerParserServerJson.hs` : don't parse if any lexer-errors
+- start HaskellLexerServerJson with realtive path
+
+- in active editor: decorate positions from lexer/parser-response
 
 - obsolete: `haskell-src/*Server*.*`
 
 - optional lexing in ghc-engine
-- optional lexing and optional parsing in HaskellLexerParserServerJson
-
-- in active editor: decorate positions from lexer/parser-response
 
 - find (Json-)Object utilities
 

@@ -40,7 +40,7 @@ export class Messenger {
     this.socket.send(text);
   }
 
-  lexAndParse(text: string): Promise<string> {
+  execute(text: string): Promise<string> {
     console.log("sending: " + text);
 
     var self = this;

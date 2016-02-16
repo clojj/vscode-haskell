@@ -12,18 +12,19 @@ var EventEmitter = require('events');
 
 export function activate(context: vscode.ExtensionContext) {
 
-  let childProcess = cp.spawn('/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dist/build/hlpsj/hlpsj', [], {});
-  if (childProcess.pid) {
-    console.log('vscode-haskell: child-process started');
-  }
+  // TODO
+  // let childProcess = cp.spawn('/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dist/build/hlpsj/hlpsj', [], {});
+  // if (childProcess.pid) {
+  //   console.log('vscode-haskell: child-process started');
+  // }
         
   console.log('vscode-haskell: Extension activated');
 
   var activeEditor = vscode.window.activeTextEditor;
   var e = new EventEmitter();
   var decorer = new decorator.Decorator(activeEditor);
-  // var lexer = new zmq.Messenger('ipc:///tmp/lexer');
-  var parser = new zmq.Messenger('ipc:///tmp/parser');
+  var lexer = new zmq.Messenger('ipc:///tmp/lexer');
+  // var parser = new zmq.Messenger('ipc:///tmp/parser');
 
   if (activeEditor) {
     decorer.refreshDecorations(new vscode.Position(0, 0));
@@ -39,7 +40,8 @@ export function activate(context: vscode.ExtensionContext) {
       // triggerUpdateDecorations(new vscode.Position(0, 0));
       
       // todo: move to disposal
-      parser.send('{{exit}}');
+      lexer.send('{{exit}}');
+      // parser.send('{{exit}}');
     }
   }, null, context.subscriptions);
 
@@ -63,11 +65,25 @@ export function activate(context: vscode.ExtensionContext) {
       // decorer.refreshDecorations(from);
       // parser.send(activeEditor.document.getText()); // todo: extract subscriber for document
 
-      parser.lexAndParse(activeEditor.document.getText())
+      lexer.execute(activeEditor.document.getText())
         .then((st) => {
           console.log("Promise resolved:\n" + st);
+          
           // todo: decorate !
+          var result = JSON.parse(st);
+          console.log("first pos: " + result.right[0][1]);
+        	var from: vscode.Position = new vscode.Position(result.right[0][1][0]-1, result.right[0][1][1]-1);
+        	var to: vscode.Position = new vscode.Position(result.right[0][1][2]-1, result.right[0][1][3]-1);
+          var range = new vscode.Range(from, to);
+          testDecorations = [];
+          testDecorations.push({ range: range, hoverMessage: null});
+          activeEditor.setDecorations(testDecoration, testDecorations);
         });
+      // parser.execute(activeEditor.document.getText())
+      //   .then((st) => {
+      //     console.log("Promise resolved:\n" + st);
+      //     // todo: decorate !
+      //   });
     },
     function(err) {
       console.log('Error: ' + err);
@@ -76,7 +92,13 @@ export function activate(context: vscode.ExtensionContext) {
       console.log('Completed');
     }
   );
+  
+  var testDecorations: vscode.DecorationOptions[] = [];
 
+  var testDecoration: vscode.TextEditorDecorationType = vscode.window.createTextEditorDecorationType({
+      cursor: 'crosshair',
+      backgroundColor: 'rgba(255,0,0,0.3)'
+    });
 
   var timeout = null;
   function triggerUpdateDecorations(from: vscode.Position) {
