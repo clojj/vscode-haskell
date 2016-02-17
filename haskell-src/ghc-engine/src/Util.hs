@@ -20,6 +20,7 @@ showToken t = (tok, pos) where
   pos = getPos srcSpan
   tok = show $ GHC.unLoc t
 
+-- fix offset (0-based) for vscode
 getPos :: GHC.SrcSpan -> Position
 getPos srcSpan = (startLine-1, startColumn-1, endLine-1, endColumn-1) where
   (startLine, startColumn) = getGhcLoc srcSpan
