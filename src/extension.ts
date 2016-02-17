@@ -11,22 +11,35 @@ import * as Rx from 'rx';
 import * as cp from 'child_process';
 
 var EventEmitter = require('events');
+var subscription;
+
+const eventEmitter = new EventEmitter();
+const lexer = new zmq.Messenger('ipc:///tmp/lexer');
+// const parser = new zmq.Messenger('ipc:///tmp/parser');
+var childProcess;
+
+export function deactivate(context: vscode.ExtensionContext) {
+  // TODO disposals correct and complete ?
+  console.log('vscode-haskell: stopping child-process...');
+  subscription.dispose();
+  lexer.send('{{exit}}');
+  lexer.close();
+  childProcess.disconnect();
+  console.log('vscode-haskell: child-process killed');
+}
 
 export function activate(context: vscode.ExtensionContext) {
 
-  // TODO
-  // let childProcess = cp.spawn('/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dist/build/hlpsj/hlpsj', [], {});
-  // if (childProcess.pid) {
-  //   console.log('vscode-haskell: child-process started');
-  // }
-        
+  // TODO use relative path
+  childProcess = cp.spawn('/Users/jwin/VSCodeExtensions/vscode-haskell/haskell-src/ghc-engine/dist/build/hlsj/hlsj', [], {});
+  if (childProcess.pid) {
+    console.log('vscode-haskell: child-process started');
+  }
+
   console.log('vscode-haskell: Extension activated');
 
   var activeEditor = vscode.window.activeTextEditor;
-  var e = new EventEmitter();
-  var decorer = new decorator.Decorator(activeEditor);
-  var lexer = new zmq.Messenger('ipc:///tmp/lexer');
-  // var parser = new zmq.Messenger('ipc:///tmp/parser');
+  const decorer = new decorator.Decorator(activeEditor);
 
   if (activeEditor) {
     decorer.refreshDecorations(new vscode.Position(0, 0));
@@ -43,14 +56,15 @@ export function activate(context: vscode.ExtensionContext) {
       
       // todo: move to disposal
       lexer.send('{{exit}}');
-      // parser.execute('{{exit}}');
+      // parser.send('{{exit}}');
     }
   }, null, context.subscriptions);
 
   vscode.workspace.onDidChangeTextDocument(event => {
     if (activeEditor && event.document === activeEditor.document) {
       var contentChanges: vscode.TextDocumentContentChangeEvent[] = event.contentChanges;
-      e.emit('data', contentChanges[0].range.start);
+      // TODO also process multiple contentChanges (multi-cursor editing)
+      eventEmitter.emit('data', contentChanges[0].range.start);
     }
   }, null, context.subscriptions);
 
@@ -58,10 +72,10 @@ export function activate(context: vscode.ExtensionContext) {
   // src/extension.ts: error TS2339: Property 'fromEvent' does not exist on type 'ObservableStatic'.
   
   // wrap EventEmitter
-  var source = Rx.Observable.fromEvent(e, 'data', undefined).debounce(300 /* ms */); 
+  var source = Rx.Observable.fromEvent(eventEmitter, 'data').debounce(300 /* ms */); 
 
-  // todo: extract subscriber for document
-  var subscription = source.subscribe(
+  // TODO extract subscriber for document
+  subscription = source.subscribe(
     function(from: vscode.Position) {
 
       const start = process.hrtime();

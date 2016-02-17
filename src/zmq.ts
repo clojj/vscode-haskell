@@ -34,10 +34,14 @@ export class Messenger {
     // });
   }
 
-  // send(text: string) {
-  //   console.log("sending: " + text);
-  //   this.socket.send(text);
-  // }
+  close() {
+    this.socket.close();  
+  }
+  
+  send(text: string) {
+    console.log("sending: " + text);
+    this.socket.send(text);
+  }
 
   execute(text: string): Promise<string> {
     // console.log("sending: " + text);
