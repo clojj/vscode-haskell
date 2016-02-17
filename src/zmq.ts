@@ -1,7 +1,6 @@
 'use strict'
 
-var zmq = require("zmq");
-// var parser = require("../lib/parser");
+const zmq = require("zmq");
 
 export class Messenger {
 
@@ -35,15 +34,15 @@ export class Messenger {
     // });
   }
 
-  send(text: string) {
-    console.log("sending: " + text);
-    this.socket.send(text);
-  }
+  // send(text: string) {
+  //   console.log("sending: " + text);
+  //   this.socket.send(text);
+  // }
 
   execute(text: string): Promise<string> {
-    console.log("sending: " + text);
+    // console.log("sending: " + text);
 
-    var self = this;
+    const self = this;
 
     return new Promise(
       (resolve: (str: string) => void, reject: (str: string) => void) => {

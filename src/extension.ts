@@ -1,6 +1,8 @@
 /// <reference path="../node_modules/rx/ts/rx.es6.d.ts" />
 'use strict'
 
+const prettyHrtime = require('pretty-hrtime');
+
 import * as vscode from 'vscode';
 import * as decorator from './decorator';
 import * as zmq from './zmq';
@@ -41,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
       
       // todo: move to disposal
       lexer.send('{{exit}}');
-      // parser.send('{{exit}}');
+      // parser.execute('{{exit}}');
     }
   }, null, context.subscriptions);
 
@@ -56,22 +58,25 @@ export function activate(context: vscode.ExtensionContext) {
   // src/extension.ts: error TS2339: Property 'fromEvent' does not exist on type 'ObservableStatic'.
   
   // wrap EventEmitter
-  var source = Rx.Observable.fromEvent(e, 'data', undefined).debounce(500 /* ms */); 
+  var source = Rx.Observable.fromEvent(e, 'data', undefined).debounce(300 /* ms */); 
 
+  // todo: extract subscriber for document
   var subscription = source.subscribe(
     function(from: vscode.Position) {
-      console.log('offset: %d', from.character);
-      // decorer.refreshDecorations(from);
-      // parser.send(activeEditor.document.getText()); // todo: extract subscriber for document
 
-      lexer.execute(activeEditor.document.getText())
+      const start = process.hrtime();
+      lexer.execute(activeEditor.document.getText()) // parser.execute(activeEditor.document.getText())
         .then((st) => {
-          console.log("Promise resolved:\n" + st);
-          
+          const end = process.hrtime(start);
+          const dur = prettyHrtime(end);
+          console.log("Promise resolved in " + dur + "\n" + st);
+                                
           // todo: decorate !
+          // decorer.refreshDecorations(from);
+          
           var result = JSON.parse(st);
           if (result.right != undefined) {
-            console.log("first pos: " + result.right[0][1]);
+            // console.log("first pos: " + result.right[0][1]);
             var from: vscode.Position = new vscode.Position(result.right[0][1][0], result.right[0][1][1]);
             var to: vscode.Position = new vscode.Position(result.right[0][1][2], result.right[0][1][3]);
             var range = new vscode.Range(from, to);
@@ -101,15 +106,16 @@ export function activate(context: vscode.ExtensionContext) {
     backgroundColor: 'rgba(255,0,0,0.3)'
   });
 
-  var timeout = null;
-  function triggerUpdateDecorations(from: vscode.Position) {
-    console.log('triggerUpdateDecorations');
-    decorer.refreshDecorations(from);
-    if (timeout) {
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(decorer.refreshDecorations(from), 500);
-  }
+  // TODO remove obsolete debounce-fn
+  // var timeout = null;
+  // function triggerUpdateDecorations(from: vscode.Position) {
+  //   console.log('triggerUpdateDecorations');
+  //   decorer.refreshDecorations(from);
+  //   if (timeout) {
+  //     clearTimeout(timeout);
+  //   }
+  //   timeout = setTimeout(decorer.refreshDecorations(from), 500);
+  // }
 
 }
 
