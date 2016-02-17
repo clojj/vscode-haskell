@@ -52,12 +52,11 @@ export function activate(context: vscode.ExtensionContext) {
     }
   }, null, context.subscriptions);
 
-  // todo: tsc error
+  // TODO tsc error
   // src/extension.ts: error TS2339: Property 'fromEvent' does not exist on type 'ObservableStatic'.
   
   // wrap EventEmitter
-  var source = Rx.Observable.fromEvent(e, 'data', undefined);
-    // .filter((from: vscode.Position, index: number, source: Rx.Observable<{}>) => from.character < 10);
+  var source = Rx.Observable.fromEvent(e, 'data', undefined).debounce(500 /* ms */); 
 
   var subscription = source.subscribe(
     function(from: vscode.Position) {
@@ -71,13 +70,15 @@ export function activate(context: vscode.ExtensionContext) {
           
           // todo: decorate !
           var result = JSON.parse(st);
-          console.log("first pos: " + result.right[0][1]);
-        	var from: vscode.Position = new vscode.Position(result.right[0][1][0]-1, result.right[0][1][1]-1);
-        	var to: vscode.Position = new vscode.Position(result.right[0][1][2]-1, result.right[0][1][3]-1);
-          var range = new vscode.Range(from, to);
-          testDecorations = [];
-          testDecorations.push({ range: range, hoverMessage: null});
-          activeEditor.setDecorations(testDecoration, testDecorations);
+          if (result.right != undefined) {
+            console.log("first pos: " + result.right[0][1]);
+            var from: vscode.Position = new vscode.Position(result.right[0][1][0], result.right[0][1][1]);
+            var to: vscode.Position = new vscode.Position(result.right[0][1][2], result.right[0][1][3]);
+            var range = new vscode.Range(from, to);
+            testDecorations = [];
+            testDecorations.push({ range: range, hoverMessage: null });
+            activeEditor.setDecorations(testDecoration, testDecorations);
+          }
         });
       // parser.execute(activeEditor.document.getText())
       //   .then((st) => {
@@ -92,13 +93,13 @@ export function activate(context: vscode.ExtensionContext) {
       console.log('Completed');
     }
   );
-  
+
   var testDecorations: vscode.DecorationOptions[] = [];
 
   var testDecoration: vscode.TextEditorDecorationType = vscode.window.createTextEditorDecorationType({
-      cursor: 'crosshair',
-      backgroundColor: 'rgba(255,0,0,0.3)'
-    });
+    cursor: 'crosshair',
+    backgroundColor: 'rgba(255,0,0,0.3)'
+  });
 
   var timeout = null;
   function triggerUpdateDecorations(from: vscode.Position) {

@@ -1,11 +1,15 @@
-- start HaskellLexerServerJson with realtive path
+
+- start *ServerJson with realtive path
 
 - in active editor: decorate positions from lexer/parser-response
+
+- refactor HaskellLexerParserServerJson: without channel (already done in HaskellLexerServerJson) 
 
 - obsolete: `haskell-src/*Server*.*`
 
 - optional lexing in ghc-engine
 
+- JSON access: use ramda.js lenses
 - find (Json-)Object utilities
 
 - re-start server-process(es) automatically on process-errors, action, ...
