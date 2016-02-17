@@ -1,7 +1,9 @@
 /// <reference path="../node_modules/rx/ts/rx.es6.d.ts" />
 'use strict'
 
+const EventEmitter = require('events');
 const prettyHrtime = require('pretty-hrtime');
+var R = require('ramda');
 
 import * as vscode from 'vscode';
 import * as decorator from './decorator';
@@ -10,10 +12,8 @@ import * as Rx from 'rx';
 
 import * as cp from 'child_process';
 
-var EventEmitter = require('events');
-var subscription;
-
 const eventEmitter = new EventEmitter();
+var subscription;
 const lexer = new zmq.Messenger('ipc:///tmp/lexer');
 // const parser = new zmq.Messenger('ipc:///tmp/parser');
 var childProcess;
@@ -42,7 +42,7 @@ export function activate(context: vscode.ExtensionContext) {
   const decorer = new decorator.Decorator(activeEditor);
 
   if (activeEditor) {
-    decorer.refreshDecorations(new vscode.Position(0, 0));
+    // decorer.refreshDecorations(new vscode.Position(0, 0));
     // triggerUpdateDecorations(new vscode.Position(0, 0));
   }
 
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
     activeEditor = editor;
     decorer.activeEditor = activeEditor;
     if (editor) {
-      decorer.refreshDecorations(new vscode.Position(0, 0));
+      // decorer.refreshDecorations(new vscode.Position(0, 0));
       // triggerUpdateDecorations(new vscode.Position(0, 0));
       
       // todo: move to disposal
@@ -85,17 +85,17 @@ export function activate(context: vscode.ExtensionContext) {
           const dur = prettyHrtime(end);
           console.log("Promise resolved in " + dur + "\n" + st);
                                 
-          // todo: decorate !
-          // decorer.refreshDecorations(from);
-          
+          // todo: refactor to decorer, decorate correctly + optimally
           var result = JSON.parse(st);
           if (result.right != undefined) {
             // console.log("first pos: " + result.right[0][1]);
-            var from: vscode.Position = new vscode.Position(result.right[0][1][0], result.right[0][1][1]);
-            var to: vscode.Position = new vscode.Position(result.right[0][1][2], result.right[0][1][3]);
-            var range = new vscode.Range(from, to);
             testDecorations = [];
-            testDecorations.push({ range: range, hoverMessage: null });
+            R.forEach(element => {
+              var from: vscode.Position = new vscode.Position(element[1][0], element[1][1]);
+              var to: vscode.Position = new vscode.Position(element[1][2], element[1][3]);
+              var range = new vscode.Range(from, to);
+              testDecorations.push({ range: range, hoverMessage: null });
+            }, result.right);
             activeEditor.setDecorations(testDecoration, testDecorations);
           }
         });

@@ -2,6 +2,7 @@
 - start *ServerJson with realtive path
 
 - in active editor: decorate positions from lexer/parser-response
+- refactor decorer
 
 - refactor HaskellLexerParserServerJson: without channel (already done in HaskellLexerServerJson) 
 
@@ -9,12 +10,9 @@
 
 - optional lexing in ghc-engine
 
-- JSON access: use ramda.js lenses
-- find (Json-)Object utilities
+- JSON access: use ramda + ramda-lenses (find other JSON utilities?)
 
 - re-start server-process(es) automatically on process-errors, action, ...
-
-- send '{{exit}}' from appropriate place ? otherwise just cancel the child-process
 
 
 Github VisualizingHaskellAST
